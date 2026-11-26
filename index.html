@@ -3,731 +3,529 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tegar Pandu Saputra — Junior Programmer & Network Technician</title>
-    <meta name="description" content="Portfolio & CV Tegar Pandu Saputra. Junior Programmer & Spesialis Teknik Komputer dan Jaringan dari Banyuwangi.">
+    <title>Tegar Pandu Saputra — Programmer & Network Technician</title>
+    <meta name="description" content="Portfolio & CV Tegar Pandu Saputra. Programmer & Spesialis Teknik Komputer dan Jaringan dari Banyuwangi.">
     
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: ['class', '[data-theme="dark"]'],
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        editorial: {
+                            bg: '#F7F7F5',
+                            surface: '#FFFFFF',
+                            text: '#141414',
+                            muted: '#5C5C58',
+                            border: '#E2E2DE',
+                            accent: '#1B4332',
+                            accentHover: '#2D6A4F',
+                        },
+                        darkEd: {
+                            bg: '#111110',
+                            surface: '#1A1A18',
+                            text: '#F2F2F0',
+                            muted: '#9C9C96',
+                            border: '#2C2C2A',
+                            accent: '#52B788',
+                            accentHover: '#74C69D',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        :root {
-            --bg-primary: #F7F7F5;
-            --bg-surface: #FFFFFF;
-            --text-main: #141414;
-            --text-muted: #5C5C58;
-            --border-color: #E2E2DE;
-            --accent: #1B4332;
-            --accent-hover: #2D6A4F;
-            --accent-subtle: rgba(27, 67, 50, 0.08);
-            --status-dot: #10B981;
+        /* Transisi halus antar elemen */
+        body, section, div, a, button, input, textarea, select {
+            transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        [data-theme="dark"] {
-            --bg-primary: #111110;
-            --bg-surface: #1A1A18;
-            --text-main: #F2F2F0;
-            --text-muted: #9C9C96;
-            --border-color: #2C2C2A;
-            --accent: #52B788;
-            --accent-hover: #74C69D;
-            --accent-subtle: rgba(82, 183, 136, 0.12);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-main);
-            line-height: 1.65;
-            transition: background-color 0.25s ease, color 0.25s ease;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .mono {
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .container {
-            max-width: 1040px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Floating Theme Toggle */
-        .floating-theme {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 99;
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 10px 16px;
-            border-radius: 99px;
-            cursor: pointer;
-            font-size: 0.82rem;
-            font-family: 'JetBrains Mono', monospace;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: all 0.2s;
-        }
-
-        .floating-theme:hover {
-            border-color: var(--accent);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 0 72px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.4fr 0.8fr;
-            gap: 48px;
-            align-items: center;
-        }
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.8rem;
-            padding: 6px 12px;
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            border-radius: 99px;
-            margin-bottom: 24px;
-            color: var(--text-muted);
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--status-dot);
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        h1 {
-            font-size: clamp(2.25rem, 4.5vw, 3.4rem);
-            font-weight: 700;
-            line-height: 1.12;
-            letter-spacing: -0.03em;
-            margin-bottom: 20px;
-        }
-
-        .hero-desc {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 560px;
-            margin-bottom: 32px;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 22px;
-            border-radius: 8px;
-            font-size: 0.92rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-
-        .btn-primary {
-            background-color: var(--text-main);
-            color: var(--bg-primary);
-        }
-
-        .btn-primary:hover {
-            opacity: 0.88;
-            transform: translateY(-1px);
-        }
-
-        .btn-secondary {
-            background-color: var(--bg-surface);
-            color: var(--text-main);
-            border-color: var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--text-main);
-        }
-
-        /* Photo Frame */
-        .photo-wrapper {
-            position: relative;
-            max-width: 300px;
-            margin-left: auto;
-        }
-
-        .photo-card {
-            background-color: var(--bg-surface);
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-        }
-
-        .photo-card img {
-            width: 100%;
-            aspect-ratio: 3/4;
-            object-fit: cover;
-            object-position: center top;
-            border-radius: 8px;
-            display: block;
-            background-color: #d63031;
-        }
-
-        .photo-caption {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 12px;
-            padding: 0 4px;
-            font-size: 0.78rem;
-            color: var(--text-muted);
-        }
-
-        /* Sections General */
-        section {
-            padding: 72px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        .section-index {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        .skill-card {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 28px;
-            transition: border-color 0.2s ease;
-        }
-
-        .skill-card:hover {
-            border-color: var(--accent);
-        }
-
-        .skill-tag {
-            display: inline-block;
-            font-size: 0.75rem;
-            color: var(--accent);
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        .skill-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            letter-spacing: -0.01em;
-        }
-
-        .skill-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .tech-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            list-style: none;
-        }
-
-        .tech-list li {
-            font-size: 0.78rem;
-            padding: 4px 10px;
-            background-color: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            color: var(--text-main);
-        }
-
-        /* Interactive Terminal / Career Goal */
-        .terminal-box {
-            background-color: #161615;
-            color: #E4E4E0;
-            border-radius: 12px;
-            border: 1px solid #2E2E2B;
-            overflow: hidden;
-            margin-top: 32px;
-        }
-
-        .terminal-header {
-            background-color: #1F1F1D;
-            padding: 10px 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-bottom: 1px solid #2E2E2B;
-        }
-
-        .dot { width: 10px; height: 10px; border-radius: 50%; }
-        .dot-r { background: #FF5F56; }
-        .dot-y { background: #FFBD2E; }
-        .dot-g { background: #27C93F; }
-
-        .terminal-title {
-            margin-left: 8px;
-            font-size: 0.78rem;
-            color: #8E8E88;
-        }
-
-        .terminal-body {
-            padding: 20px;
-            font-size: 0.88rem;
-            line-height: 1.7;
-        }
-
-        .cmd { color: #52B788; }
-        .key { color: #9CDCFE; }
-        .str { color: #CE9178; }
-
-        /* Education Vertical Timeline */
-        .edu-timeline {
-            position: relative;
-            padding-left: 32px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .edu-timeline::before {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 28px;
-            bottom: 28px;
-            width: 2px;
-            background: var(--border-color);
-        }
-
-        .edu-card {
-            position: relative;
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 24px 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .edu-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-        }
-
-        .edu-card::before {
-            content: '';
-            position: absolute;
-            left: -32px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: var(--bg-surface);
-            border: 3px solid var(--border-color);
-            transition: border-color 0.2s ease, background-color 0.2s ease;
-            z-index: 2;
-        }
-
-        .edu-card:first-child::before {
-            border-color: var(--accent);
-            background-color: var(--accent);
-        }
-
-        .edu-card:hover::before {
-            border-color: var(--accent);
-        }
-
-        .edu-badge {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 4px 10px;
-            border-radius: 6px;
-            background-color: var(--accent-subtle);
-            color: var(--accent);
-            margin-bottom: 10px;
-        }
-
-        .edu-school {
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            margin-bottom: 4px;
-        }
-
-        .edu-loc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .map-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
-            background-color: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            white-space: nowrap;
-            transition: all 0.2s ease;
-        }
-
-        .map-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background-color: var(--bg-surface);
-        }
-
-        .map-btn svg {
-            width: 16px;
-            height: 16px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        /* Contact & Footer */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .contact-info-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-item {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .contact-label {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .contact-value {
-            font-weight: 600;
-            font-size: 0.98rem;
-            color: var(--text-main);
-            text-decoration: none;
-        }
-
-        .copy-btn {
-            background: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.78rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-
-        .copy-btn:hover {
-            border-color: var(--text-main);
-        }
-
-        .address-card {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            padding: 28px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        footer {
-            padding: 36px 0;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 36px;
+        /* Pengaturan khusus saat mencetak atau menyimpan PDF */
+        @media print {
+            .no-print {
+                display: none !important;
             }
-            .photo-wrapper {
-                margin: 0;
-                max-width: 240px;
-                order: -1;
+            body {
+                background-color: #FFFFFF !important;
+                color: #141414 !important;
             }
-            .skills-grid, .contact-grid {
-                grid-template-columns: 1fr;
+            section {
+                padding-top: 1.5rem !important;
+                padding-bottom: 1.5rem !important;
+                break-inside: avoid;
             }
-            .edu-card {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 20px;
-            }
-            .map-btn {
-                width: 100%;
-                justify-content: center;
+            .shadow-sm, .shadow-md, .shadow-lg {
+                box-shadow: none !important;
             }
         }
     </style>
 </head>
-<body>
+<body class="bg-editorial-bg text-editorial-text dark:bg-darkEd-bg dark:text-darkEd-text font-sans antialiased selection:bg-editorial-accent selection:text-white dark:selection:bg-darkEd-accent dark:selection:text-darkEd-bg">
 
-    <!-- Floating Theme Toggle -->
-    <button class="floating-theme" id="themeToggle" aria-label="Ganti Tema">DARK MODE</button>
+    <!-- Tombol Pengubah Tema (Matahari / Bulan) di Pojok Kanan Atas -->
+    <button id="themeToggle" aria-label="Ganti Tema Terang atau Gelap" title="Ganti Tema" class="no-print fixed top-5 right-5 z-50 w-11 h-11 rounded-full flex items-center justify-center bg-editorial-surface/90 dark:bg-darkEd-surface/90 border border-editorial-border dark:border-darkEd-border text-editorial-text dark:text-darkEd-text backdrop-blur-md shadow-sm hover:border-editorial-accent dark:hover:border-darkEd-accent hover:scale-105 active:scale-95 cursor-pointer">
+        <!-- Ikon Bulan (Muncul saat Light Mode untuk beralih ke Dark) -->
+        <svg id="moonIcon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+        <!-- Ikon Matahari (Muncul saat Dark Mode untuk beralih ke Light) -->
+        <svg id="sunIcon" class="w-5 h-5 hidden dark:block text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+    </button>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="container hero-grid">
-                <div>
-                    <div class="status-badge mono">
-                        <span class="status-dot"></span>
-                        Tersedia untuk peluang kerja & proyek
-                    </div>
-                    <h1>Tegar Pandu Saputra</h1>
-                    <p class="hero-desc">
-                        Calon <strong>Programmer</strong> dengan latar belakang kuat di bidang <strong>Teknik Komputer & Jaringan</strong> serta <strong>Pemrograman Web</strong>. Berfokus membangun sistem yang fungsional, efisien, dan terstruktur.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="https://wa.me/6281554005099" target="_blank" rel="noopener" class="btn btn-primary">
-                            Hubungi via WhatsApp
-                        </a>
-                        <a href="mailto:pandusaputrat@gmail.com" class="btn btn-secondary">
-                            Kirim Email
-                        </a>
-                    </div>
-                </div>
+        <section class="pt-16 pb-14 sm:pt-24 sm:pb-20 border-b border-editorial-border dark:border-darkEd-border">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-center">
+                    
+                    <!-- Kolom Kiri: Perkenalan & Tombol Aksi -->
+                    <div class="md:col-span-7 lg:col-span-8 order-2 md:order-1">
+                        <div class="inline-flex items-center gap-2 font-mono text-xs px-3 py-1.5 rounded-full bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border text-editorial-muted dark:text-darkEd-muted mb-6">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                            <span>Siap berkarya sebagai Programmer</span>
+                        </div>
 
-                <div class="photo-wrapper">
-                    <div class="photo-card">
-                        <!-- Ganti nama file di bawah ini sesuai nama file foto Anda di GitHub -->
-                        <img src="Screenshot_20261126-155501~2.jpg" alt="Foto Profil Tegar Pandu Saputra" onerror="this.src='foto-tegar.jpg'">
-                        <div class="photo-caption mono">
-                            <span>Banyuwangi, ID</span>
-                            <span>TKJ / WEB</span>
+                        <h1 class="text-4xl sm:text-5xl lg:text-[3.4rem] font-bold tracking-tight leading-[1.12] mb-5">
+                            Tegar Pandu Saputra
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-editorial-muted dark:text-darkEd-muted max-w-xl leading-relaxed mb-8">
+                            Calon <strong class="font-semibold text-editorial-text dark:text-darkEd-text">Programmer</strong> dengan keahlian di bidang <strong class="font-semibold text-editorial-text dark:text-darkEd-text">Teknik Komputer &amp; Jaringan</strong> serta <strong class="font-semibold text-editorial-text dark:text-darkEd-text">Pemrograman Web</strong>. Berfokus membangun aplikasi dan sistem yang fungsional, efisien, serta terstruktur.
+                        </p>
+
+                        <!-- Deretan Tombol Utama yang Selaras dengan Tema CV -->
+                        <div class="no-print flex flex-wrap items-center gap-3">
+                            <!-- Tombol WhatsApp -->
+                            <a href="https://wa.me/6281554005099" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold bg-editorial-accent text-white dark:bg-darkEd-accent dark:text-darkEd-bg hover:bg-editorial-accentHover dark:hover:bg-darkEd-accentHover shadow-sm active:scale-[0.98]">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+                                Hubungi WhatsApp
+                            </a>
+
+                            <!-- Tombol Email -->
+                            <a href="mailto:pandusaputrat@gmail.com" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border hover:border-editorial-text dark:hover:border-darkEd-text active:scale-[0.98]">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                Email
+                            </a>
+
+                            <!-- Tombol Lihat Project -->
+                            <a href="#project" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border hover:border-editorial-accent dark:hover:border-darkEd-accent hover:text-editorial-accent dark:hover:text-darkEd-accent active:scale-[0.98]">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                                Lihat Project
+                            </a>
+
+                            <!-- Tombol Cetak / Simpan PDF CV -->
+                            <button onclick="window.print()" class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border hover:border-editorial-text dark:hover:border-darkEd-text active:scale-[0.98] cursor-pointer" title="Simpan CV dalam format PDF">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                                Simpan PDF
+                            </button>
                         </div>
                     </div>
+
+                    <!-- Kolom Kanan: Kartu Foto Profil -->
+                    <div class="md:col-span-5 lg:col-span-4 order-1 md:order-2 flex justify-start md:justify-end">
+                        <div class="w-full max-w-[270px] bg-editorial-surface dark:bg-darkEd-surface p-3 rounded-xl border border-editorial-border dark:border-darkEd-border shadow-sm">
+                            <div class="relative aspect-[3/4] w-full rounded-lg overflow-hidden bg-[#D63031]">
+                                <!-- Foto Profil Utama -->
+                                <img id="profilePreviewImg" 
+                                     src="Screenshot_20261126-155501~2.jpg" 
+                                     alt="Foto Profil Tegar Pandu Saputra" 
+                                     onerror="handlePhotoError(this)"
+                                     class="w-full h-full object-cover object-top">
+                                
+                                <!-- Fallback Avatar Ilustrasi Profesional -->
+                                <div id="defaultAvatar" class="hidden w-full h-full flex flex-col items-center justify-end bg-gradient-to-b from-[#DC2626] to-[#B91C1C]">
+                                    <svg viewBox="0 0 300 400" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="300" height="400" fill="#D93829"/>
+                                        <rect x="125" y="215" width="50" height="55" rx="10" fill="#C69473"/>
+                                        <path d="M125 225 Q150 245 175 225 L175 240 Q150 255 125 240 Z" fill="#A87858" opacity="0.5"/>
+                                        <path d="M98 145 C98 95, 202 95, 202 145 C202 195, 182 228, 150 228 C118 228, 98 195, 98 145 Z" fill="#D4A383"/>
+                                        <ellipse cx="96" cy="162" rx="8" ry="16" fill="#C69473"/>
+                                        <ellipse cx="204" cy="162" rx="8" ry="16" fill="#C69473"/>
+                                        <path d="M94 148 C90 105, 112 76, 152 76 C192 76, 210 105, 206 148 C203 125, 192 108, 150 108 C108 108, 97 125, 94 148 Z" fill="#18181B"/>
+                                        <path d="M100 112 C115 86, 175 82, 198 108 C180 96, 125 96, 100 112 Z" fill="#27272A"/>
+                                        <path d="M115 144 Q128 139 139 144" stroke="#18181B" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                                        <path d="M161 144 Q172 139 185 144" stroke="#18181B" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                                        <circle cx="128" cy="154" r="4" fill="#18181B"/>
+                                        <circle cx="172" cy="154" r="4" fill="#18181B"/>
+                                        <path d="M150 154 L146 176 L154 178" stroke="#B07D5E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                        <path d="M138 198 Q150 202 162 198" stroke="#9A664B" stroke-width="3" stroke-linecap="round" fill="none"/>
+                                        <path d="M70 285 L125 255 L175 255 L230 285 L230 400 L70 400 Z" fill="#F1F5F9"/>
+                                        <polygon points="150,275 138,315 150,395 162,315" fill="#94A3B8"/>
+                                        <polygon points="140,262 160,262 156,278 144,278" fill="#64748B"/>
+                                        <polygon points="125,255 150,272 132,292 115,268" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+                                        <polygon points="175,255 150,272 168,292 185,268" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+                                        <path d="M35 315 C45 280, 95 265, 118 260 L150 375 L182 260 C205 265, 255 280, 265 315 L275 400 L25 400 Z" fill="#3B4D3B"/>
+                                        <polygon points="118,260 150,375 112,345 124,318 104,308" fill="#2D3B2D"/>
+                                        <polygon points="182,260 150,375 188,345 176,318 196,308" fill="#2D3B2D"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between mt-3 px-1 font-mono text-xs text-editorial-muted dark:text-darkEd-muted">
+                                <span>Banyuwangi, ID</span>
+                                <span class="text-editorial-accent dark:text-darkEd-accent font-medium">TKJ / WEB</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Keahlian & Tujuan Karier -->
-        <section id="keahlian">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Keahlian & Fokus</h2>
-                    <span class="section-index mono">01 / KOMPETENSI</span>
+        <!-- Section 01: Keahlian & Fokus -->
+        <section id="keahlian" class="py-16 sm:py-20 border-b border-editorial-border dark:border-darkEd-border">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="flex flex-wrap items-baseline justify-between gap-3 mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Keahlian &amp; Fokus</h2>
+                    <span class="font-mono text-xs sm:text-sm text-editorial-muted dark:text-darkEd-muted">01 / KOMPETENSI</span>
                 </div>
 
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <span class="skill-tag mono">// SOFTWARE DEVELOPMENT</span>
-                        <h3>Pemrograman Web</h3>
-                        <p>Mengembangkan antarmuka web yang responsif, bersih, dan terstruktur dengan standar kode modern serta siap dideploy.</p>
-                        <ul class="tech-list mono">
-                            <li>HTML5</li>
-                            <li>CSS3</li>
-                            <li>JavaScript</li>
-                            <li>Responsive Layout</li>
-                            <li>Git & GitHub</li>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Kartu Keahlian 1 -->
+                    <div class="bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border hover:border-editorial-accent dark:hover:border-darkEd-accent rounded-xl p-7">
+                        <span class="inline-block font-mono text-xs font-medium text-editorial-accent dark:text-darkEd-accent mb-3">
+                            // SOFTWARE DEVELOPMENT
+                        </span>
+                        <h3 class="text-xl font-bold tracking-tight mb-2.5">Pemrograman Web</h3>
+                        <p class="text-sm sm:text-base text-editorial-muted dark:text-darkEd-muted leading-relaxed mb-6">
+                            Mengembangkan antarmuka web yang responsif, bersih, dan terstruktur dengan standar kode modern serta siap dideploy.
+                        </p>
+                        <ul class="flex flex-wrap gap-2 font-mono text-xs">
+                            <li class="px-2.5 py-1 rounded-md bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">HTML5</li>
+                            <li class="px-2.5 py-1 rounded-md bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">CSS3</li>
+                            <li class="px-2.5 py-1 rounded-md bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">JavaScript</li>
+                            <li class="px-2.5 py-1 rounded-md bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">Responsive Layout</li>
+                            <li class="px-2.5 py-1 rounded-md bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">Git &amp; GitHub</li>
                         </ul>
                     </div>
 
-                    <div class="skill-card">
-                        <span class="skill-tag mono">// INFRASTRUCTURE & HARDWARE</span>
-                        <h3>Teknik Komputer & Jaringan</h3>
-                        <p>Memahami arsitektur jaringan komputer, perakitan perangkat keras, instalasi sistem operasi, serta pemecahan masalah teknis (troubleshooting).</p>
-                        <ul class="tech-list mono">
-                            <li>Konfigurasi Jaringan</li>
-                            <li>LAN / WLAN</li>
-                            <li>Hardware Maintenance</li>
-                            <li>Troubleshooting OS</li>
+                    <!-- Kartu Keahlian 2 -->
+                    <div class="bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border hover:border-editorial-accent dark:hover:border-darkEd-accent rounded-xl p-7">
+                        <span class="inline-block font-mono text-xs font-medium text-editorial-accent dark:text-darkEd-accent mb-3">
+                            // INFRASTRUCTURE &amp; HARDWARE
+                        </span>
+                        <h3 class="text-xl font-bold tracking-tight mb-2.5">Teknik Komputer &amp; Jaringan</h3>
+                        <p class="text-sm sm:text-base text-editorial-muted dark:text-darkEd-muted leading-relaxed mb-6">
+                            Memahami arsitektur jaringan komputer, perakitan perangkat keras, instalasi sistem operasi, serta pemecahan masalah teknis (troubleshooting).
+                        </p>
+                        <ul class="flex flex-wrap gap-2 font-mono text-xs">
+                            <li class="px-2.5 py-1 rounded-md bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">Konfigurasi Jaringan</li>
+                            <li class="px-2.5 py-1 rounded-md bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">LAN / WLAN</li>
+                            <li class="px-2.5 py-1 rounded-md bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">Hardware Maintenance</li>
+                            <li class="px-2.5 py-1 rounded-md bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">Troubleshooting OS</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Interactive Profile Object -->
-                <div class="terminal-box">
-                    <div class="terminal-header">
-                        <span class="dot dot-r"></span>
-                        <span class="dot dot-y"></span>
-                        <span class="dot dot-g"></span>
-                        <span class="terminal-title mono">profile.json — bash</span>
+                <!-- Terminal Box: profile.json -->
+                <div class="mt-8 bg-[#161615] text-[#E4E4E0] rounded-xl border border-[#2E2E2B] overflow-hidden shadow-sm">
+                    <div class="bg-[#1F1F1D] px-4 py-2.5 flex items-center gap-2 border-b border-[#2E2E2B]">
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#FF5F56]"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#27C93F]"></span>
+                        <span class="ml-2 font-mono text-xs text-[#8E8E88]">profile.json — bash</span>
                     </div>
-                    <div class="terminal-body mono">
-                        <div><span class="cmd">$</span> cat tujuan_karier.json</div>
-                        <div style="margin-top: 8px;">
-                            {<br>
-                            &nbsp;&nbsp;<span class="key">"nama"</span>: <span class="str">"Tegar Pandu Saputra"</span>,<br>
-                            &nbsp;&nbsp;<span class="key">"tujuan_karier"</span>: <span class="str">"Programmer"</span>,<br>
-                            &nbsp;&nbsp;<span class="key">"minat_utama"</span>: [<span class="str">"Web Development"</span>, <span class="str">"System & Network"</span>],<br>
-                            &nbsp;&nbsp;<span class="key">"domisili"</span>: <span class="str">"Srono, Banyuwangi, Jawa Timur"</span><br>
-                            }
-                        </div>
+                    <div class="p-5 sm:p-6 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
+                        <div class="mb-2"><span class="text-[#52B788]">$</span> cat tujuan_karier.json</div>
+                        <pre class="text-[#E4E4E0]">{
+  <span class="text-[#9CDCFE]">"nama"</span>: <span class="text-[#CE9178]">"Tegar Pandu Saputra"</span>,
+  <span class="text-[#9CDCFE]">"tujuan_karier"</span>: <span class="text-[#CE9178]">"Programmer"</span>,
+  <span class="text-[#9CDCFE]">"minat_utama"</span>: [<span class="text-[#CE9178]">"Web Development"</span>, <span class="text-[#CE9178]">"System &amp; Network"</span>],
+  <span class="text-[#9CDCFE]">"domisili"</span>: <span class="text-[#CE9178]">"Srono, Banyuwangi, Jawa Timur"</span>
+}</pre>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Riwayat Pendidikan -->
-        <section id="pendidikan">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Riwayat Pendidikan</h2>
-                    <span class="section-index mono">02 / AKADEMIK</span>
+        <!-- Section 02: Karya & Project (Dilengkapi Tombol + Tambah Project) -->
+        <section id="project" class="py-16 sm:py-20 border-b border-editorial-border dark:border-darkEd-border">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-10">
+                    <div>
+                        <div class="flex items-center gap-3">
+                            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Karya &amp; Project</h2>
+                            <span class="font-mono text-xs text-editorial-muted dark:text-darkEd-muted hidden sm:inline">02 / PORTFOLIO</span>
+                        </div>
+                        <p class="text-sm text-editorial-muted dark:text-darkEd-muted mt-1">
+                            Daftar proyek pemrograman dan jaringan. Klik tombol di kanan untuk menambahkan karya baru.
+                        </p>
+                    </div>
+
+                    <!-- Tombol Tambah Project -->
+                    <button onclick="openProjectModal()" class="no-print inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold bg-editorial-accent text-white dark:bg-darkEd-accent dark:text-darkEd-bg hover:bg-editorial-accentHover dark:hover:bg-darkEd-accentHover shadow-sm active:scale-[0.98] cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                        </svg>
+                        <span>Tambah Project</span>
+                    </button>
                 </div>
 
-                <div class="edu-timeline">
-                    <!-- SMK -->
-                    <div class="edu-card">
+                <!-- Grid Daftar Project -->
+                <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Kartu Project Bawaan 1 -->
+                    <article class="project-card bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border hover:border-editorial-accent dark:hover:border-darkEd-accent rounded-xl p-6 flex flex-col justify-between shadow-sm">
                         <div>
-                            <span class="edu-badge mono">SEKOLAH MENENGAH KEJURUAN (SMK)</span>
-                            <h3 class="edu-school">SMK Ihya Ulummudin</h3>
-                            <p class="edu-loc">Singojuruh / Banyuwangi, Jawa Timur</p>
+                            <div class="flex items-center justify-between gap-2 mb-3">
+                                <span class="font-mono text-xs font-medium px-2.5 py-0.5 rounded-md bg-editorial-accent/10 dark:bg-darkEd-accent/15 text-editorial-accent dark:text-darkEd-accent">
+                                    WEB DEVELOPMENT
+                                </span>
+                                <span class="font-mono text-xs text-editorial-muted dark:text-darkEd-muted">2026</span>
+                            </div>
+                            <h3 class="text-lg font-bold tracking-tight mb-2">Website CV &amp; Portfolio Pribadi</h3>
+                            <p class="text-sm text-editorial-muted dark:text-darkEd-muted leading-relaxed mb-5">
+                                Website portfolio responsif bergaya minimalis editorial dengan fitur mode terang/gelap, manajemen proyek dinamis, dan siap di-hosting di GitHub Pages.
+                            </p>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=SMK+Ihya+Ulummudin+Banyuwangi" target="_blank" rel="noopener" class="map-btn">
-                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            Google Maps
-                        </a>
-                    </div>
+                        <div>
+                            <div class="flex flex-wrap gap-1.5 font-mono text-xs mb-4">
+                                <span class="px-2 py-0.5 rounded bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">HTML5</span>
+                                <span class="px-2 py-0.5 rounded bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">Tailwind CSS</span>
+                                <span class="px-2 py-0.5 rounded bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">JavaScript</span>
+                            </div>
+                            <div class="pt-3 border-t border-editorial-border dark:border-darkEd-border flex items-center justify-between">
+                                <a href="#project" class="inline-flex items-center gap-1.5 font-mono text-xs font-medium text-editorial-accent dark:text-darkEd-accent hover:underline">
+                                    <span>Lihat Detail</span>
+                                    <span>&nearr;</span>
+                                </a>
+                                <span class="font-mono text-[11px] text-editorial-muted dark:text-darkEd-muted">GitHub Pages</span>
+                            </div>
+                        </div>
+                    </article>
 
-                    <!-- SMP -->
-                    <div class="edu-card">
+                    <!-- Kartu Project Bawaan 2 -->
+                    <article class="project-card bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border hover:border-editorial-accent dark:hover:border-darkEd-accent rounded-xl p-6 flex flex-col justify-between shadow-sm">
                         <div>
-                            <span class="edu-badge mono">SEKOLAH MENENGAH PERTAMA (SMP)</span>
-                            <h3 class="edu-school">SMP Negeri 2 Srono</h3>
-                            <p class="edu-loc">Kecamatan Srono, Kabupaten Banyuwangi</p>
+                            <div class="flex items-center justify-between gap-2 mb-3">
+                                <span class="font-mono text-xs font-medium px-2.5 py-0.5 rounded-md bg-editorial-accent/10 dark:bg-darkEd-accent/15 text-editorial-accent dark:text-darkEd-accent">
+                                    NETWORK &amp; TKJ
+                                </span>
+                                <span class="font-mono text-xs text-editorial-muted dark:text-darkEd-muted">TKJ LAB</span>
+                            </div>
+                            <h3 class="text-lg font-bold tracking-tight mb-2">Konfigurasi Jaringan Lokal &amp; Mikrotik</h3>
+                            <p class="text-sm text-editorial-muted dark:text-darkEd-muted leading-relaxed mb-5">
+                                Perancangan topologi jaringan LAN/WLAN, pembagian bandwidth, DHCP server, serta troubleshooting konektivitas perangkat keras komputer.
+                            </p>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=SMP+Negeri+2+Srono+Banyuwangi" target="_blank" rel="noopener" class="map-btn">
-                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            Google Maps
-                        </a>
-                    </div>
-
-                    <!-- MI -->
-                    <div class="edu-card">
                         <div>
-                            <span class="edu-badge mono">MADRASAH IBTIDAIYAH (MI)</span>
-                            <h3 class="edu-school">MI Alkhoiriyah</h3>
-                            <p class="edu-loc">Parijatah Kulon, Srono, Banyuwangi</p>
+                            <div class="flex flex-wrap gap-1.5 font-mono text-xs mb-4">
+                                <span class="px-2 py-0.5 rounded bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">Mikrotik</span>
+                                <span class="px-2 py-0.5 rounded bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">LAN / WLAN</span>
+                                <span class="px-2 py-0.5 rounded bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">Subnetting</span>
+                            </div>
+                            <div class="pt-3 border-t border-editorial-border dark:border-darkEd-border flex items-center justify-between">
+                                <span class="font-mono text-xs text-editorial-muted dark:text-darkEd-muted">Dokumentasi Praktik</span>
+                                <span class="font-mono text-[11px] text-editorial-accent dark:text-darkEd-accent">Selesai</span>
+                            </div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=MI+Alkhoiriyah+Parijatah+Kulon+Srono+Banyuwangi" target="_blank" rel="noopener" class="map-btn">
-                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            Google Maps
-                        </a>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Kontak & Alamat -->
-        <section id="kontak" style="border-bottom: none;">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Kontak & Domisili</h2>
-                    <span class="section-index mono">03 / HUBUNGI SAYA</span>
+        <!-- Section 03: Riwayat Pendidikan (Vertical Timeline) -->
+        <section id="pendidikan" class="py-16 sm:py-20 border-b border-editorial-border dark:border-darkEd-border">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="flex flex-wrap items-baseline justify-between gap-3 mb-12">
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Riwayat Pendidikan</h2>
+                        <p class="text-sm text-editorial-muted dark:text-darkEd-muted mt-1">Jejak pendidikan formal beserta lokasi institusi di Banyuwangi.</p>
+                    </div>
+                    <span class="font-mono text-xs sm:text-sm text-editorial-muted dark:text-darkEd-muted">03 / AKADEMIK</span>
                 </div>
 
-                <div class="contact-grid">
-                    <div class="contact-info-list">
-                        <div class="contact-item">
+                <!-- Vertical Timeline Container -->
+                <div class="relative pl-6 sm:pl-8 border-l-2 border-editorial-border dark:border-darkEd-border space-y-6">
+                    
+                    <!-- Item 1: SMK -->
+                    <div class="relative group">
+                        <span class="absolute -left-[31px] sm:-left-[39px] top-6 w-3.5 h-3.5 rounded-full bg-editorial-accent dark:bg-darkEd-accent ring-4 ring-editorial-bg dark:ring-darkEd-bg group-hover:scale-125"></span>
+                        
+                        <div class="bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border group-hover:border-editorial-accent dark:group-hover:border-darkEd-accent rounded-xl p-5 sm:p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                             <div>
-                                <span class="contact-label mono">TELEPON / WHATSAPP</span>
-                                <a href="tel:+6281554005099" class="contact-value">0815-5400-5099</a>
+                                <div class="flex flex-wrap items-center gap-2.5 mb-2">
+                                    <span class="font-mono text-xs font-semibold px-2.5 py-0.5 rounded-md bg-editorial-accent/10 dark:bg-darkEd-accent/15 text-editorial-accent dark:text-darkEd-accent border border-editorial-accent/20 dark:border-darkEd-accent/30">
+                                        SMK
+                                    </span>
+                                    <span class="font-mono text-xs text-editorial-muted dark:text-darkEd-muted">
+                                        Sekolah Menengah Kejuruan
+                                    </span>
+                                </div>
+                                <h3 class="text-lg sm:text-xl font-bold tracking-tight">
+                                    SMK Ihya Ulummudin
+                                </h3>
+                                <p class="text-sm text-editorial-muted dark:text-darkEd-muted mt-1 flex items-center gap-1.5">
+                                    <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                    </svg>
+                                    Singojuruh / Banyuwangi, Jawa Timur
+                                </p>
                             </div>
-                            <button class="copy-btn mono" onclick="copyText('081554005099', this)">Salin</button>
-                        </div>
 
-                        <div class="contact-item">
-                            <div>
-                                <span class="contact-label mono">EMAIL</span>
-                                <a href="mailto:pandusaputrat@gmail.com" class="contact-value">pandusaputrat@gmail.com</a>
+                            <div class="no-print pt-2 sm:pt-0 border-t sm:border-t-0 border-editorial-border dark:border-darkEd-border shrink-0">
+                                <a href="https://www.google.com/maps/search/?api=1&query=SMK+Ihya+Ulummudin+Banyuwangi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2.5 rounded-lg font-mono text-xs font-medium bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border hover:bg-editorial-accent hover:text-white hover:border-editorial-accent dark:hover:bg-darkEd-accent dark:hover:text-darkEd-bg dark:hover:border-darkEd-accent">
+                                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span>Google Maps</span>
+                                    <span class="opacity-75">&nearr;</span>
+                                </a>
                             </div>
-                            <button class="copy-btn mono" onclick="copyText('pandusaputrat@gmail.com', this)">Salin</button>
                         </div>
                     </div>
 
-                    <div class="address-card">
+                    <!-- Item 2: SMP -->
+                    <div class="relative group">
+                        <span class="absolute -left-[31px] sm:-left-[39px] top-6 w-3.5 h-3.5 rounded-full bg-editorial-border dark:bg-darkEd-border group-hover:bg-editorial-accent dark:group-hover:bg-darkEd-accent ring-4 ring-editorial-bg dark:ring-darkEd-bg group-hover:scale-125"></span>
+                        
+                        <div class="bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border group-hover:border-editorial-accent dark:group-hover:border-darkEd-accent rounded-xl p-5 sm:p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div>
+                                <div class="flex flex-wrap items-center gap-2.5 mb-2">
+                                    <span class="font-mono text-xs font-semibold px-2.5 py-0.5 rounded-md bg-editorial-bg dark:bg-darkEd-bg text-editorial-muted dark:text-darkEd-muted border border-editorial-border dark:border-darkEd-border group-hover:text-editorial-accent dark:group-hover:text-darkEd-accent">
+                                        SMP
+                                    </span>
+                                    <span class="font-mono text-xs text-editorial-muted dark:text-darkEd-muted">
+                                        Sekolah Menengah Pertama
+                                    </span>
+                                </div>
+                                <h3 class="text-lg sm:text-xl font-bold tracking-tight">
+                                    SMP Negeri 2 Srono
+                                </h3>
+                                <p class="text-sm text-editorial-muted dark:text-darkEd-muted mt-1 flex items-center gap-1.5">
+                                    <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                    </svg>
+                                    Kecamatan Srono, Kabupaten Banyuwangi
+                                </p>
+                            </div>
+
+                            <div class="no-print pt-2 sm:pt-0 border-t sm:border-t-0 border-editorial-border dark:border-darkEd-border shrink-0">
+                                <a href="https://www.google.com/maps/search/?api=1&query=SMP+Negeri+2+Srono+Banyuwangi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2.5 rounded-lg font-mono text-xs font-medium bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border hover:bg-editorial-accent hover:text-white hover:border-editorial-accent dark:hover:bg-darkEd-accent dark:hover:text-darkEd-bg dark:hover:border-darkEd-accent">
+                                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span>Google Maps</span>
+                                    <span class="opacity-75">&nearr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: MI -->
+                    <div class="relative group">
+                        <span class="absolute -left-[31px] sm:-left-[39px] top-6 w-3.5 h-3.5 rounded-full bg-editorial-border dark:bg-darkEd-border group-hover:bg-editorial-accent dark:group-hover:bg-darkEd-accent ring-4 ring-editorial-bg dark:ring-darkEd-bg group-hover:scale-125"></span>
+                        
+                        <div class="bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border group-hover:border-editorial-accent dark:group-hover:border-darkEd-accent rounded-xl p-5 sm:p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div>
+                                <div class="flex flex-wrap items-center gap-2.5 mb-2">
+                                    <span class="font-mono text-xs font-semibold px-2.5 py-0.5 rounded-md bg-editorial-bg dark:bg-darkEd-bg text-editorial-muted dark:text-darkEd-muted border border-editorial-border dark:border-darkEd-border group-hover:text-editorial-accent dark:group-hover:text-darkEd-accent">
+                                        MI
+                                    </span>
+                                    <span class="font-mono text-xs text-editorial-muted dark:text-darkEd-muted">
+                                        Madrasah Ibtidaiyah
+                                    </span>
+                                </div>
+                                <h3 class="text-lg sm:text-xl font-bold tracking-tight">
+                                    MI Alkhoiriyah
+                                </h3>
+                                <p class="text-sm text-editorial-muted dark:text-darkEd-muted mt-1 flex items-center gap-1.5">
+                                    <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                    </svg>
+                                    Parijatah Kulon, Srono, Banyuwangi
+                                </p>
+                            </div>
+
+                            <div class="no-print pt-2 sm:pt-0 border-t sm:border-t-0 border-editorial-border dark:border-darkEd-border shrink-0">
+                                <a href="https://www.google.com/maps/search/?api=1&query=MI+Alkhoiriyah+Parijatah+Kulon+Srono+Banyuwangi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2.5 rounded-lg font-mono text-xs font-medium bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border hover:bg-editorial-accent hover:text-white hover:border-editorial-accent dark:hover:bg-darkEd-accent dark:hover:text-darkEd-bg dark:hover:border-darkEd-accent">
+                                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span>Google Maps</span>
+                                    <span class="opacity-75">&nearr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 04: Kontak & Domisili -->
+        <section id="kontak" class="py-16 sm:py-20">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="flex flex-wrap items-baseline justify-between gap-3 mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Kontak &amp; Domisili</h2>
+                    <span class="font-mono text-xs sm:text-sm text-editorial-muted dark:text-darkEd-muted">04 / HUBUNGI SAYA</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                    <!-- Kolom Kiri: Telepon & Email -->
+                    <div class="flex flex-col gap-4">
+                        <!-- Kartu Telepon -->
+                        <div class="bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border rounded-xl p-5 flex items-center justify-between gap-4">
+                            <div>
+                                <span class="block font-mono text-xs text-editorial-muted dark:text-darkEd-muted mb-1">TELEPON / WHATSAPP</span>
+                                <a href="tel:+6281554005099" class="font-semibold text-base hover:text-editorial-accent dark:hover:text-darkEd-accent">
+                                    0815-5400-5099
+                                </a>
+                            </div>
+                            <button onclick="copyText('081554005099', this)" class="no-print font-mono text-xs px-3.5 py-2 rounded-lg bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border hover:border-editorial-text dark:hover:border-darkEd-text cursor-pointer shrink-0">
+                                Salin
+                            </button>
+                        </div>
+
+                        <!-- Kartu Email -->
+                        <div class="bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border rounded-xl p-5 flex items-center justify-between gap-4">
+                            <div class="min-w-0">
+                                <span class="block font-mono text-xs text-editorial-muted dark:text-darkEd-muted mb-1">EMAIL</span>
+                                <a href="mailto:pandusaputrat@gmail.com" class="font-semibold text-base truncate block hover:text-editorial-accent dark:hover:text-darkEd-accent">
+                                    pandusaputrat@gmail.com
+                                </a>
+                            </div>
+                            <button onclick="copyText('pandusaputrat@gmail.com', this)" class="no-print font-mono text-xs px-3.5 py-2 rounded-lg bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border hover:border-editorial-text dark:hover:border-darkEd-text cursor-pointer shrink-0">
+                                Salin
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Kolom Kanan: Alamat -->
+                    <div class="bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border rounded-xl p-6 flex flex-col justify-between">
                         <div>
-                            <span class="contact-label mono">ALAMAT LENGKAP</span>
-                            <p style="font-weight: 500; margin-top: 8px; font-size: 1.02rem;">
+                            <span class="block font-mono text-xs text-editorial-muted dark:text-darkEd-muted mb-2">ALAMAT LENGKAP</span>
+                            <p class="font-medium text-base leading-relaxed">
                                 Dusun Melik, Desa Parijatah Kulon,<br>
                                 Kecamatan Srono, Kabupaten Banyuwangi
                             </p>
                         </div>
-                        <div style="margin-top: 24px;">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Parijatah+Kulon+Srono+Banyuwangi" target="_blank" rel="noopener" class="mono" style="font-size: 0.82rem; color: var(--accent); text-decoration: none;">
-                                Lihat di Google Maps &rarr;
+                        <div class="no-print mt-6 pt-4 border-t border-editorial-border dark:border-darkEd-border">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Parijatah+Kulon,+Srono,+Banyuwangi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-mono text-xs font-medium text-editorial-accent dark:text-darkEd-accent hover:underline">
+                                Lihat di Google Maps
+                                <span>&rarr;</span>
                             </a>
                         </div>
                     </div>
@@ -736,17 +534,95 @@
         </section>
     </main>
 
-    <footer>
-        <div class="container mono">
-            &copy; <span id="year"></span> Tegar Pandu Saputra. Dibangun dengan HTML, CSS & JS.
+    <!-- Footer -->
+    <footer class="border-t border-editorial-border dark:border-darkEd-border py-8">
+        <div class="max-w-5xl mx-auto px-6 text-center font-mono text-xs text-editorial-muted dark:text-darkEd-muted">
+            &copy; <span id="year">2026</span> Tegar Pandu Saputra. Dibangun dengan HTML, CSS &amp; JS.
         </div>
     </footer>
 
+    <!-- Modal Form Tambah Project Baru -->
+    <div id="projectModal" class="no-print fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <div class="bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border rounded-2xl w-full max-w-lg p-6 sm:p-7 shadow-xl max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between pb-4 border-b border-editorial-border dark:border-darkEd-border mb-5">
+                <div>
+                    <h3 class="text-lg font-bold tracking-tight">Tambah Project ke CV</h3>
+                    <p class="text-xs text-editorial-muted dark:text-darkEd-muted mt-0.5">Proyek akan langsung tampil di halaman CV Anda.</p>
+                </div>
+                <button onclick="closeProjectModal()" class="w-8 h-8 rounded-lg flex items-center justify-center border border-editorial-border dark:border-darkEd-border hover:border-editorial-text dark:hover:border-darkEd-text cursor-pointer" aria-label="Tutup">
+                    &times;
+                </button>
+            </div>
+
+            <form id="addProjectForm" class="space-y-4">
+                <div>
+                    <label class="block font-mono text-xs text-editorial-muted dark:text-darkEd-muted mb-1.5">NAMA PROJECT *</label>
+                    <input type="text" id="projTitle" required placeholder="Contoh: Aplikasi Kasir Toko Sederhana" class="w-full px-3.5 py-2.5 rounded-lg text-sm bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border focus:outline-none focus:border-editorial-accent dark:focus:border-darkEd-accent">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-mono text-xs text-editorial-muted dark:text-darkEd-muted mb-1.5">KATEGORI</label>
+                        <select id="projCategory" class="w-full px-3.5 py-2.5 rounded-lg text-sm bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border focus:outline-none focus:border-editorial-accent dark:focus:border-darkEd-accent">
+                            <option value="WEB DEVELOPMENT">WEB DEVELOPMENT</option>
+                            <option value="NETWORK & TKJ">NETWORK &amp; TKJ</option>
+                            <option value="MOBILE / APP">MOBILE / APP</option>
+                            <option value="OTHER PROJECT">OTHER PROJECT</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-mono text-xs text-editorial-muted dark:text-darkEd-muted mb-1.5">TAHUN / LABEL</label>
+                        <input type="text" id="projYear" value="2026" placeholder="2026" class="w-full px-3.5 py-2.5 rounded-lg text-sm bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border focus:outline-none focus:border-editorial-accent dark:focus:border-darkEd-accent">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-mono text-xs text-editorial-muted dark:text-darkEd-muted mb-1.5">DESKRIPSI SINGKAT *</label>
+                    <textarea id="projDesc" rows="3" required placeholder="Jelaskan fungsi utama proyek yang Anda buat..." class="w-full px-3.5 py-2.5 rounded-lg text-sm bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border focus:outline-none focus:border-editorial-accent dark:focus:border-darkEd-accent"></textarea>
+                </div>
+
+                <div>
+                    <label class="block font-mono text-xs text-editorial-muted dark:text-darkEd-muted mb-1.5">TEKNOLOGI (PISAHKAN DENGAN KOMA)</label>
+                    <input type="text" id="projTech" placeholder="Contoh: HTML, CSS, JavaScript, PHP" class="w-full px-3.5 py-2.5 rounded-lg text-sm bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border focus:outline-none focus:border-editorial-accent dark:focus:border-darkEd-accent">
+                </div>
+
+                <div>
+                    <label class="block font-mono text-xs text-editorial-muted dark:text-darkEd-muted mb-1.5">LINK GITHUB / DEMO (OPSIONAL)</label>
+                    <input type="url" id="projLink" placeholder="https://github.com/username/project" class="w-full px-3.5 py-2.5 rounded-lg text-sm bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border focus:outline-none focus:border-editorial-accent dark:focus:border-darkEd-accent">
+                </div>
+
+                <div class="pt-3 flex flex-wrap items-center justify-end gap-3 border-t border-editorial-border dark:border-darkEd-border">
+                    <button type="button" onclick="closeProjectModal()" class="px-4 py-2.5 rounded-lg text-xs font-mono border border-editorial-border dark:border-darkEd-border hover:border-editorial-text dark:hover:border-darkEd-text cursor-pointer">
+                        Batal
+                    </button>
+                    <button type="submit" class="px-5 py-2.5 rounded-lg text-xs font-mono font-semibold bg-editorial-accent text-white dark:bg-darkEd-accent dark:text-darkEd-bg hover:opacity-90 cursor-pointer">
+                        Simpan ke CV
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
-        // Set tahun otomatis
+        // Set tahun otomatis di footer
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Dark / Light Mode Toggle
+        // Fallback foto profil
+        function handlePhotoError(img) {
+            if (!img.dataset.triedFallback) {
+                img.dataset.triedFallback = 'true';
+                img.src = 'foto-tegar.jpg';
+            } else {
+                img.onerror = null;
+                img.classList.add('hidden');
+                const defaultAvatar = document.getElementById('defaultAvatar');
+                if (defaultAvatar) {
+                    defaultAvatar.classList.remove('hidden');
+                }
+            }
+        }
+
+        // Pengaturan Dark / Light Mode dengan Ikon Matahari & Bulan
         const themeToggle = document.getElementById('themeToggle');
         const htmlEl = document.documentElement;
 
@@ -754,23 +630,164 @@
             const isDark = htmlEl.getAttribute('data-theme') === 'dark';
             if (isDark) {
                 htmlEl.removeAttribute('data-theme');
-                themeToggle.textContent = 'DARK MODE';
             } else {
                 htmlEl.setAttribute('data-theme', 'dark');
-                themeToggle.textContent = 'LIGHT MODE';
             }
         });
 
-        // Fitur Salin Nomor & Email
+        // Fitur Salin Teks ke Clipboard
         function copyText(text, btn) {
-            navigator.clipboard.writeText(text).then(() => {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            tempInput.style.position = 'fixed';
+            tempInput.style.opacity = '0';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            
+            try {
+                document.execCommand('copy');
                 const originalText = btn.textContent;
                 btn.textContent = 'Tersalin!';
+                btn.classList.add('border-emerald-600', 'text-emerald-600', 'dark:text-emerald-400');
+                
                 setTimeout(() => {
                     btn.textContent = originalText;
+                    btn.classList.remove('border-emerald-600', 'text-emerald-600', 'dark:text-emerald-400');
                 }, 1800);
+            } catch (err) {
+                console.error('Gagal menyalin:', err);
+            }
+            
+            document.body.removeChild(tempInput);
+        }
+
+        // --- MANAJEMEN TAMBAH PROJECT INTERAKTIF ---
+        const projectModal = document.getElementById('projectModal');
+        const addProjectForm = document.getElementById('addProjectForm');
+        const projectsGrid = document.getElementById('projectsGrid');
+        const STORAGE_KEY = 'tegar_cv_custom_projects';
+
+        function openProjectModal() {
+            projectModal.classList.remove('hidden');
+            projectModal.classList.add('flex');
+        }
+
+        function closeProjectModal() {
+            projectModal.classList.add('hidden');
+            projectModal.classList.remove('flex');
+            addProjectForm.reset();
+        }
+
+        // Tutup modal saat area gelap di luar kartu diklik
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) closeProjectModal();
+        });
+
+        function escapeHTML(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function createProjectCardHTML(proj) {
+            const techBadges = (proj.tech || 'Web / Code')
+                .split(',')
+                .map(t => t.trim())
+                .filter(Boolean)
+                .map(t => `<span class="px-2 py-0.5 rounded bg-editorial-bg dark:bg-darkEd-bg border border-editorial-border dark:border-darkEd-border">${escapeHTML(t)}</span>`)
+                .join('');
+
+            const linkSection = proj.link
+                ? `<a href="${escapeHTML(proj.link)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-mono text-xs font-medium text-editorial-accent dark:text-darkEd-accent hover:underline">
+                        <span>Buka Project</span>
+                        <span>&nearr;</span>
+                   </a>`
+                : `<span class="font-mono text-xs text-editorial-muted dark:text-darkEd-muted">Portfolio Karya</span>`;
+
+            return `
+                <article data-custom-id="${proj.id}" class="project-card bg-editorial-surface dark:bg-darkEd-surface border border-editorial-border dark:border-darkEd-border hover:border-editorial-accent dark:hover:border-darkEd-accent rounded-xl p-6 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <span class="font-mono text-xs font-medium px-2.5 py-0.5 rounded-md bg-editorial-accent/10 dark:bg-darkEd-accent/15 text-editorial-accent dark:text-darkEd-accent">
+                                ${escapeHTML(proj.category)}
+                            </span>
+                            <div class="flex items-center gap-2">
+                                <span class="font-mono text-xs text-editorial-muted dark:text-darkEd-muted">${escapeHTML(proj.year)}</span>
+                                <button onclick="deleteCustomProject('${proj.id}')" title="Hapus Project" class="no-print text-xs font-mono text-red-500 hover:underline ml-1 cursor-pointer">Hapus</button>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold tracking-tight mb-2">${escapeHTML(proj.title)}</h3>
+                        <p class="text-sm text-editorial-muted dark:text-darkEd-muted leading-relaxed mb-5">
+                            ${escapeHTML(proj.desc)}
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-1.5 font-mono text-xs mb-4">
+                            ${techBadges}
+                        </div>
+                        <div class="pt-3 border-t border-editorial-border dark:border-darkEd-border flex items-center justify-between">
+                            ${linkSection}
+                            <button onclick="copyProjectSnippet('${proj.id}', this)" class="no-print font-mono text-[11px] text-editorial-muted dark:text-darkEd-muted hover:text-editorial-text dark:hover:text-darkEd-text cursor-pointer">
+                                Salin Kode HTML
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        function getSavedProjects() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function renderSavedProjects() {
+            const saved = getSavedProjects();
+            saved.forEach(proj => {
+                projectsGrid.insertAdjacentHTML('afterbegin', createProjectCardHTML(proj));
             });
         }
+
+        function deleteCustomProject(id) {
+            const updated = getSavedProjects().filter(p => p.id !== id);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+            const cardEl = document.querySelector(`[data-custom-id="${id}"]`);
+            if (cardEl) cardEl.remove();
+        }
+
+        function copyProjectSnippet(id, btn) {
+            const proj = getSavedProjects().find(p => p.id === id);
+            if (!proj) return;
+            const cleanHTML = createProjectCardHTML(proj).replace(/<button[^>]*>Hapus<\/button>/g, '').replace(/<button[^>]*>Salin Kode HTML<\/button>/g, '<span class="font-mono text-[11px] text-editorial-accent">GitHub</span>');
+            copyText(cleanHTML.trim(), btn);
+        }
+
+        addProjectForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const newProj = {
+                id: 'proj_' + Date.now(),
+                title: document.getElementById('projTitle').value.trim(),
+                category: document.getElementById('projCategory').value,
+                year: document.getElementById('projYear').value.trim() || '2026',
+                desc: document.getElementById('projDesc').value.trim(),
+                tech: document.getElementById('projTech').value.trim(),
+                link: document.getElementById('projLink').value.trim()
+            };
+
+            const saved = getSavedProjects();
+            saved.push(newProj);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+
+            projectsGrid.insertAdjacentHTML('afterbegin', createProjectCardHTML(newProj));
+            closeProjectModal();
+        });
+
+        // Muat proyek yang tersimpan saat halaman dibuka
+        renderSavedProjects();
     </script>
 </body>
 </html>
+```
