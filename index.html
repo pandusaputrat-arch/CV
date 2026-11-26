@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tegar Pandu Saputra — Junior Programmer & Network Technician</title>
+    <meta name="description" content="Portfolio & CV Tegar Pandu Saputra. Junior Programmer & Spesialis Teknik Komputer dan Jaringan dari Banyuwangi.">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #F7F7F5;
+            --bg-surface: #FFFFFF;
+            --text-main: #141414;
+            --text-muted: #5C5C58;
+            --border-color: #E2E2DE;
+            --accent: #1B4332;
+            --accent-hover: #2D6A4F;
+            --accent-subtle: rgba(27, 67, 50, 0.08);
+            --status-dot: #10B981;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #111110;
+            --bg-surface: #1A1A18;
+            --text-main: #F2F2F0;
+            --text-muted: #9C9C96;
+            --border-color: #2C2C2A;
+            --accent: #52B788;
+            --accent-hover: #74C69D;
+            --accent-subtle: rgba(82, 183, 136, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.65;
+            transition: background-color 0.25s ease, color 0.25s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navbar */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(8px);
+            transition: background-color 0.25s ease, border-color 0.25s ease;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 68px;
+        }
+
+        .brand {
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 72px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 0.8fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 99px;
+            margin-bottom: 24px;
+            color: var(--text-muted);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--status-dot);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: clamp(2.25rem, 4.5vw, 3.4rem);
+            font-weight: 700;
+            line-height: 1.12;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 560px;
+            margin-bottom: 32px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--text-main);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.88;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-surface);
+            color: var(--text-main);
+            border-color: var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-main);
+        }
+
+        /* Photo Frame */
+        .photo-wrapper {
+            position: relative;
+            max-width: 300px;
+            margin-left: auto;
+        }
+
+        .photo-card {
+            background-color: var(--bg-surface);
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+
+        .photo-card img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 8px;
+            display: block;
+            background-color: #d63031;
+        }
+
+        .photo-caption {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+            padding: 0 4px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* Sections General */
+        section {
+            padding: 72px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .section-index {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .skill-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px;
+            transition: border-color 0.2s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent);
+        }
+
+        .skill-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .skill-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
+        }
+
+        .skill-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .tech-list li {
+            font-size: 0.78rem;
+            padding: 4px 10px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-main);
+        }
+
+        /* Interactive Terminal / Career Goal */
+        .terminal-box {
+            background-color: #161615;
+            color: #E4E4E0;
+            border-radius: 12px;
+            border: 1px solid #2E2E2B;
+            overflow: hidden;
+            margin-top: 32px;
+        }
+
+        .terminal-header {
+            background-color: #1F1F1D;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #2E2E2B;
+        }
+
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-r { background: #FF5F56; }
+        .dot-y { background: #FFBD2E; }
+        .dot-g { background: #27C93F; }
+
+        .terminal-title {
+            margin-left: 8px;
+            font-size: 0.78rem;
+            color: #8E8E88;
+        }
+
+        .terminal-body {
+            padding: 20px;
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+
+        .cmd { color: #52B788; }
+        .key { color: #9CDCFE; }
+        .str { color: #CE9178; }
+
+        /* Education Vertical Timeline */
+        .edu-timeline {
+            position: relative;
+            padding-left: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .edu-timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 28px;
+            bottom: 28px;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .edu-card {
+            position: relative;
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .edu-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .edu-card::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--bg-surface);
+            border: 3px solid var(--border-color);
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+            z-index: 2;
+        }
+
+        .edu-card:first-child::before {
+            border-color: var(--accent);
+            background-color: var(--accent);
+        }
+
+        .edu-card:hover::before {
+            border-color: var(--accent);
+        }
+
+        .edu-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background-color: var(--accent-subtle);
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .edu-school {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+        }
+
+        .edu-loc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .map-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background-color: var(--bg-surface);
+        }
+
+        .map-btn svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Contact & Footer */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .contact-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .contact-value {
+            font-weight: 600;
+            font-size: 0.98rem;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .copy-btn {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover {
+            border-color: var(--text-main);
+        }
+
+        .address-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 28px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        footer {
+            padding: 36px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+            .photo-wrapper {
+                margin: 0;
+                max-width: 240px;
+                order: -1;
+            }
+            .skills-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .edu-card {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+            .map-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .nav-links a {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-inner">
+            <a href="#" class="brand">tegar<span>.dev</span></a>
+            <nav class="nav-links">
+                <a href="#keahlian">Keahlian</a>
+                <a href="#pendidikan">Pendidikan</a>
+                <a href="#kontak">Kontak</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Ganti Tema">DARK</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <div class="status-badge mono">
+                        <span class="status-dot"></span>
+                        Tersedia untuk peluang kerja & proyek
+                    </div>
+                    <h1>Tegar Pandu Saputra</h1>
+                    <p class="hero-desc">
+                        Calon <strong>Programmer</strong> dengan latar belakang kuat di bidang <strong>Teknik Komputer & Jaringan</strong> serta <strong>Pemrograman Web</strong>. Berfokus membangun sistem yang fungsional, efisien, dan terstruktur.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="https://wa.me/6281554005099" target="_blank" rel="noopener" class="btn btn-primary">
+                            Hubungi via WhatsApp
+                        </a>
+                        <a href="mailto:pandusaputrat@gmail.com" class="btn btn-secondary">
+                            Kirim Email
+                        </a>
+                    </div>
+                </div>
+
+                <div class="photo-wrapper">
+                    <div class="photo-card">
+                        <!-- Pastikan nama file foto sesuai dengan yang diupload ke GitHub -->
+                        <img src="foto-tegar.jpg" alt="Foto Profil Tegar Pandu Saputra" onerror="this.src='https://via.placeholder.com/300x400/1B4332/FFFFFF?text=Tegar+Pandu'">
+                        <div class="photo-caption mono">
+                            <span>Banyuwangi, ID</span>
+                            <span>TKJ / WEB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keahlian & Tujuan Karier -->
+        <section id="keahlian">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Keahlian & Fokus</h2>
+                    <span class="section-index mono">01 / KOMPETENSI</span>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <span class="skill-tag mono">// SOFTWARE DEVELOPMENT</span>
+                        <h3>Pemrograman Web</h3>
+                        <p>Mengembangkan antarmuka web yang responsif, bersih, dan terstruktur dengan standar kode modern serta siap dideploy.</p>
+                        <ul class="tech-list mono">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                            <li>Responsive Layout</li>
+                            <li>Git & GitHub</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <span class="skill-tag mono">// INFRASTRUCTURE & HARDWARE</span>
+                        <h3>Teknik Komputer & Jaringan</h3>
+                        <p>Memahami arsitektur jaringan komputer, perakitan perangkat keras, instalasi sistem operasi, serta pemecahan masalah teknis (troubleshooting).</p>
+                        <ul class="tech-list mono">
+                            <li>Konfigurasi Jaringan</li>
+                            <li>LAN / WLAN</li>
+                            <li>Hardware Maintenance</li>
+                            <li>Troubleshooting OS</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Interactive Profile Object -->
+                <div class="terminal-box">
+                    <div class="terminal-header">
+                        <span class="dot dot-r"></span>
+                        <span class="dot dot-y"></span>
+                        <span class="dot dot-g"></span>
+                        <span class="terminal-title mono">profile.json — bash</span>
+                    </div>
+                    <div class="terminal-body mono">
+                        <div><span class="cmd">$</span> cat tujuan_karier.json</div>
+                        <div style="margin-top: 8px;">
+                            {<br>
+                            &nbsp;&nbsp;<span class="key">"nama"</span>: <span class="str">"Tegar Pandu Saputra"</span>,<br>
+                            &nbsp;&nbsp;<span class="key">"tujuan_karier"</span>: <span class="str">"Programmer"</span>,<br>
+                            &nbsp;&nbsp;<span class="key">"minat_utama"</span>: [<span class="str">"Web Development"</span>, <span class="str">"System & Network"</span>],<br>
+                            &nbsp;&nbsp;<span class="key">"domisili"</span>: <span class="str">"Srono, Banyuwangi, Jawa Timur"</span><br>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Riwayat Pendidikan -->
+        <section id="pendidikan">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Riwayat Pendidikan</h2>
+                    <span class="section-index mono">02 / AKADEMIK</span>
+                </div>
+
+                <div class="edu-timeline">
+                    <!-- SMK -->
+                    <div class="edu-card">
+                        <div>
+                            <span class="edu-badge mono">SEKOLAH MENENGAH KEJURUAN (SMK)</span>
+                            <h3 class="edu-school">SMK Ihya Ulummudin</h3>
+                            <p class="edu-loc">Singojuruh / Banyuwangi, Jawa Timur</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=SMK+Ihya+Ulummudin+Banyuwangi" target="_blank" rel="noopener" class="map-btn">
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            Google Maps
+                        </a>
+                    </div>
+
+                    <!-- SMP -->
+                    <div class="edu-card">
+                        <div>
+                            <span class="edu-badge mono">SEKOLAH MENENGAH PERTAMA (SMP)</span>
+                            <h3 class="edu-school">SMP Negeri 2 Srono</h3>
+                            <p class="edu-loc">Kecamatan Srono, Kabupaten Banyuwangi</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=SMP+Negeri+2+Srono+Banyuwangi" target="_blank" rel="noopener" class="map-btn">
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            Google Maps
+                        </a>
+                    </div>
+
+                    <!-- MI -->
+                    <div class="edu-card">
+                        <div>
+                            <span class="edu-badge mono">MADRASAH IBTIDAIYAH (MI)</span>
+                            <h3 class="edu-school">MI Alkhoiriyah</h3>
+                            <p class="edu-loc">Parijatah Kulon, Srono, Banyuwangi</p>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=MI+Alkhoiriyah+Parijatah+Kulon+Srono+Banyuwangi" target="_blank" rel="noopener" class="map-btn">
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontak & Alamat -->
+        <section id="kontak" style="border-bottom: none;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Kontak & Domisili</h2>
+                    <span class="section-index mono">03 / HUBUNGI SAYA</span>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info-list">
+                        <div class="contact-item">
+                            <div>
+                                <span class="contact-label mono">TELEPON / WHATSAPP</span>
+                                <a href="tel:+6281554005099" class="contact-value">0815-5400-5099</a>
+                            </div>
+                            <button class="copy-btn mono" onclick="copyText('081554005099', this)">Salin</button>
+                        </div>
+
+                        <div class="contact-item">
+                            <div>
+                                <span class="contact-label mono">EMAIL</span>
+                                <a href="mailto:pandusaputrat@gmail.com" class="contact-value">pandusaputrat@gmail.com</a>
+                            </div>
+                            <button class="copy-btn mono" onclick="copyText('pandusaputrat@gmail.com', this)">Salin</button>
+                        </div>
+                    </div>
+
+                    <div class="address-card">
+                        <div>
+                            <span class="contact-label mono">ALAMAT LENGKAP</span>
+                            <p style="font-weight: 500; margin-top: 8px; font-size: 1.02rem;">
+                                Dusun Melik, Desa Parijatah Kulon,<br>
+                                Kecamatan Srono, Kabupaten Banyuwangi
+                            </p>
+                        </div>
+                        <div style="margin-top: 24px;">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Parijatah+Kulon+Srono+Banyuwangi" target="_blank" rel="noopener" class="mono" style="font-size: 0.82rem; color: var(--accent); text-decoration: none;">
+                                Lihat di Google Maps →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container mono">
+            © <span id="year"></span> Tegar Pandu Saputra. Dibangun dengan HTML, CSS & JS.
+        </div>
+    </footer>
+
+    <script>
+        // Set tahun otomatis
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Dark / Light Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlEl = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                htmlEl.removeAttribute('data-theme');
+                themeToggle.textContent = 'DARK';
+            } else {
+                htmlEl.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = 'LIGHT';
+            }
+        });
+
+        // Fitur Salin Nomor & Email
+        function copyText(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = 'Tersalin!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 1800);
+            });
+        }
+    </script>
+</body>
+</html>
